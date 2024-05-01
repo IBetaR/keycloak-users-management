@@ -7,41 +7,15 @@ spring:
         jwt:
           issuer-uri: http://localhost:8080/realms/spring-boot-realm-dev
           jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
-# http://localhost:8080/realms/auth-rest-api/.well-known/openid-configuration
-#spring:
-#  security:
-#    oauth2:
-#      client:
-#        registration:
-#          keycloak:
-#            client-id: auth-rest-api-realm
-#            authorization-grant-type: authorization_code
-#            scope: openid
-#        provider:
-#          keycloak:
-#            issuer-uri: http://localhost:8080/auth/realms/auth-rest-api
-#            user-name-attribute: preferred_username
-#      resourceserver:
-#        jwt:
-#          issuer-uri: http://localhost:8080/realms/auth-rest-api
 
-#spring:
-#  security:
-#    oauth2:
-#      client:
-#        registration:
-#          keycloak:
-#            client-id: demo-client
-#            authorization-grant-type: authorization_code
-#            scope: openid
-#        provider:
-#          keycloak:
-#            issuer-uri: http://localhost:8081/auth/realms/demo-realm
-#            user-name-attribute: preferred_username
-#      resourceserver:
-#        jwt:
-#          issuer-uri: http://localhost:8081/auth/realms/demo-realm
-
+keycloak:
+  server-url: "http://localhost:8080"
+  realm-name: "spring-boot-realm-dev"
+  realm-master: "master"
+  admin-cli: "admin-cli"
+  user-console: "admin"
+  user-password: "admin"
+  client-secret: ""
 
 server:
   port: 8081
