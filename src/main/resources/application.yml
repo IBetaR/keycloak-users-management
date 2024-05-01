@@ -1,0 +1,62 @@
+spring:
+  application:
+    name: keycloak
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/spring-boot-realm-dev
+          jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+# http://localhost:8080/realms/auth-rest-api/.well-known/openid-configuration
+#spring:
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          keycloak:
+#            client-id: auth-rest-api-realm
+#            authorization-grant-type: authorization_code
+#            scope: openid
+#        provider:
+#          keycloak:
+#            issuer-uri: http://localhost:8080/auth/realms/auth-rest-api
+#            user-name-attribute: preferred_username
+#      resourceserver:
+#        jwt:
+#          issuer-uri: http://localhost:8080/realms/auth-rest-api
+
+#spring:
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          keycloak:
+#            client-id: demo-client
+#            authorization-grant-type: authorization_code
+#            scope: openid
+#        provider:
+#          keycloak:
+#            issuer-uri: http://localhost:8081/auth/realms/demo-realm
+#            user-name-attribute: preferred_username
+#      resourceserver:
+#        jwt:
+#          issuer-uri: http://localhost:8081/auth/realms/demo-realm
+
+
+server:
+  port: 8081
+
+jwt:
+  auth:
+    converter:
+      resource-id: auth-service-api-gateway
+      principal-attr: preferred_username
+
+# Colour ANSI logs Options: ALWAYS, DETECT or NEVER
+spring.output.ansi.enabled: ALWAYS
+
+logging:
+  level:
+    org:
+      keycloak: DEBUG
+
