@@ -7,18 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("api/v1/auth")
-public class AuthController {
-//    @GetMapping
-//    @PreAuthorize("hasRole('customer-profile')")
-//    public String hello() {
-//        return "Hello from Authentication Using Key Cloak";
-//    }
-
-//    @GetMapping("admin")
-//    @PreAuthorize("hasRole('customer-admin')")
-//    public String asAdmin() {
-//        return "Hello as Admin from Authentication Using Key Cloak";
-//    }
+public class AuthTestController {
 
     @GetMapping("admin")
     @PreAuthorize("hasRole('ADMIN')")
